@@ -1,4 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
@@ -9,6 +10,7 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   })
 end
+
 vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
@@ -16,5 +18,5 @@ vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappin
 require("options")
 
 require("lazy").setup("plugins")
-require("autocmd")
+
 require("keymaps")

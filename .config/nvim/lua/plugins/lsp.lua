@@ -12,6 +12,8 @@ return {
 				python = { "isort", "black" },
 				-- Use a sub-list to run only the first available formatter
 				javascript = { { "prettierd", "prettier" } },
+				json = { { "prettierd", "prettier" } },
+				nix = { { "nixfmt", "nil" } },
 				["*"] = { "codespell" },
 				["_"] = { "trim_whitespace" },
 			},
@@ -26,7 +28,7 @@ return {
 			notify_on_error = true,
 			formatters = {
 				black = {
-					prepend_args = { "-line-length", "88" },
+					prepend_args = { "--line-length", "88" },
 				},
 			},
 		},
@@ -73,10 +75,12 @@ return {
 		config = function()
 			local lsp = require("lspconfig")
 			local coq = require("coq")
-			coq.coq_settings = { auto_start = true }
 			lsp.rust_analyzer.setup(coq.lsp_ensure_capabilities())
 			lsp.pyright.setup(coq.lsp_ensure_capabilities())
 			lsp.eslint.setup(coq.lsp_ensure_capabilities())
+			lsp.clangd.setup(coq.lsp_ensure_capabilities())
+			lsp.terraformls.setup(coq.lsp_ensure_capabilities())
+			lsp.jsonls.setup(coq.lsp_ensure_capabilities())
 
 			-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			-- local servers =

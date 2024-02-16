@@ -10,6 +10,13 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.python3_host_prog="/usr/bin/python3"
 
+vim.g.coq_settings = {
+  auto_start = true,
+  clients = {
+    tmux = { enabled = false },
+  },
+}
+
 local opt = vim.opt
 
 opt.autowrite = true -- Enable auto write
@@ -52,6 +59,7 @@ opt.updatetime = 200 -- Save swap file and trigger CursorHold
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
 opt.wrap = false -- Disable line wrap
+
 
 
 if vim.fn.has("nvim-0.9.0") == 1 then

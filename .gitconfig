@@ -1,0 +1,32 @@
+[user]
+  name = Henrique Goulart
+  email = henriquedsg89@gmail.com
+  signingkey = 66847D4777B39EF9
+[core]
+  editor = nvim
+[push]
+  autoSetupRemote = true
+[alias]
+  co = checkout
+  cob = checkout -b
+  coo = !git fetch && git checkout
+  br = branch
+  brd = branch -d
+  brD = branch -D
+  merged = branch --merged
+  s = status
+  aa = add -A .
+  c = commit
+  cm = commit -m
+  aacm = !git add -A . && git commit
+  aacm = !git add -A . && git commit -m
+  cp = cherry-pick
+  amend = commit --amend --no-edit
+  refresh = !git checkout master && git pull upstream master --rebase
+  po = push origin
+  pof = push origin -f
+  plo = pull origin
+  plu = pull upstream
+  d = diff
+[commit]
+  gpgsign = true

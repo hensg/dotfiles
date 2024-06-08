@@ -11,8 +11,8 @@ return {
     },
     defaults = {
       mappings = {
-        i = { ["<c-q>"] = require("trouble.providers.telescope").open_with_trouble },
-        n = { ["<c-q>"] = require("trouble.providers.telescope").open_with_trouble },
+        i = { ["<c-q>"] = require("trouble.sources.telescope").open },
+        n = { ["<c-q>"] = require("trouble.sources.telescope").open },
       },
     },
   },

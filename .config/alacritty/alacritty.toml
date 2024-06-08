@@ -1,33 +1,26 @@
+import = [
+    "~/.config/alacritty/themes/themes/github_dark_default.toml"
+]
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 12.0
+
+[font.normal]
+family = "FiraCode Nerd Font"
+
+[[keyboard.bindings]]
+chars = "\f"
+key = "L"
+mode = "~Vi|~Search"
+mods = "Control"
+
 [shell]
-program = "/bin/zsh"
-args = ["-l"]
-#
-#
-# import = [
-#     "~/.config/alacritty/themes/themes/github_dark_default.toml"
-# ]
-#
-# [env]
-# TERM = "xterm-256color"
-#
-# [font]
-# size = 12.0
-#
-# [font.normal]
-# family = "FiraCode"
-#
-# [[keyboard.bindings]]
-# chars = "\f"
-# key = "L"
-# mode = "~Vi|~Search"
-# mods = "Control"
-#
-# # [shell]
-# # program = "/usr/bin/zsh"
-# # args = ["-l","-c","tmux attach || tmux"]
-#
-#
-#
-# [window]
-# dimensions.columns = 140
-# dimensions.lines = 50
+program = "/usr/bin/bash"
+#args = ["-l","-c","tmux attach || tmux"]
+
+[window]
+dimensions.columns = 140
+dimensions.lines = 50

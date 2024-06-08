@@ -1,7 +1,7 @@
 local function map(mode, lhs, rhs, opts)
-	opts = opts or {}
-	opts.silent = opts.silent ~= false
-	vim.keymap.set(mode, lhs, rhs, opts)
+  opts = opts or {}
+  opts.silent = opts.silent ~= false
+  vim.keymap.set(mode, lhs, rhs, opts)
 end
 
 -- better up/down
@@ -29,10 +29,10 @@ map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
 
 map(
-	"n",
-	"<leader>ur",
-	"<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
-	{ desc = "Redraw / clear hlsearch / diff update" }
+  "n",
+  "<leader>ur",
+  "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
+  { desc = "Redraw / clear hlsearch / diff update" }
 )
 
 map({ "n", "x" }, "gw", "*N", { desc = "Search word under cursor" })
@@ -44,7 +44,7 @@ map("v", ">", ">gv")
 map("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
 map("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
 
-map("n", "<C-n>", "<cmd>NeoTreeFocusToggle<cr>", { desc = "Toggle Neo Tree" })
+map("n", "<C-n>", "<cmd>Neotree toggle<cr>", { desc = "Toggle Neo Tree" })
 
 local builtin = require("telescope.builtin")
 map("n", "<leader>ff", builtin.find_files, {})
@@ -66,7 +66,7 @@ vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
 vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
 
 vim.keymap.set("n", "<space>wl", function()
-	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 end, opts)
 
 vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
@@ -74,7 +74,7 @@ vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
 vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
 vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
 vim.keymap.set("n", "<space>fm", function()
-	vim.lsp.buf.format({ async = true })
+  vim.lsp.buf.format({ async = true })
 end, opts)
 
 vim.keymap.set("n", "<leader>1", "<Cmd>BufferLineGoToBuffer 1<CR>")
@@ -84,3 +84,9 @@ vim.keymap.set("n", "<leader>4", "<Cmd>BufferLineGoToBuffer 4<CR>")
 vim.keymap.set("n", "<leader>5", "<Cmd>BufferLineGoToBuffer 5<CR>")
 vim.keymap.set("n", "<leader>6", "<Cmd>BufferLineGoToBuffer 6<CR>")
 vim.keymap.set("n", "<leader>7", "<Cmd>BufferLineGoToBuffer 7<CR>")
+
+vim.keymap.set('n', 's', function()
+  require('leap').leap {
+    target_windows = require('leap.user').get_focusable_windows()
+  }
+end)

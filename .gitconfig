@@ -1,0 +1,15 @@
+[user]
+  name = Henrique Goulart
+  email = henriquedsg89@gmail.com
+[commit]
+  gpgsign = true
+[alias]
+    s = status
+    c = commit
+    cm = commit -m
+    co = checkout
+    p = pull
+    P = push
+    amend = commit --amend --no-edit
+[push]
+  autoSetupRemote = true

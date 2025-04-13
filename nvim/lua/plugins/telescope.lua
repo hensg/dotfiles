@@ -1,6 +1,7 @@
 return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
+    "nvim-lua/plenary.nvim",
     "folke/trouble.nvim",
   },
   opts = {
@@ -11,8 +12,8 @@ return {
     },
     defaults = {
       mappings = {
-        i = { ["<c-q>"] = require("trouble.sources.telescope").open },
-        n = { ["<c-q>"] = require("trouble.sources.telescope").open },
+        i = { ["<c-t>"] = require("trouble.sources.telescope").open },
+        n = { ["<c-t>"] = require("trouble.sources.telescope").open },
       },
     },
   },

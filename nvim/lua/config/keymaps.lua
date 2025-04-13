@@ -51,11 +51,11 @@ local builtin = require("telescope.builtin")
 
 map("n", "<leader>ff", builtin.find_files, {})
 map("n", "<leader>fw", builtin.live_grep, {})
-map("n", "<leader>fh", builtin.search_history, {})
-map("n", "<leader>fb", builtin.oldfiles, {})
-map("n", "<leader>fr", builtin.registers, {})
+map("n", "<leader>fr", builtin.search_history, {})
+map("n", "<leader>fb", builtin.buffers, {})
+map("n", "<leader>fh", builtin.help_tags, {})
 
-vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
+vim.keymap.set("n", "<space>df", vim.diagnostic.open_float)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 -- vim.keymap.set("n", "<space>qf", "<cmd>TroubleToggle<cr>")
@@ -88,11 +88,11 @@ vim.keymap.set("n", "<leader>5", "<Cmd>BufferLineGoToBuffer 5<CR>")
 vim.keymap.set("n", "<leader>6", "<Cmd>BufferLineGoToBuffer 6<CR>")
 vim.keymap.set("n", "<leader>7", "<Cmd>BufferLineGoToBuffer 7<CR>")
 
--- vim.keymap.set('n', 's', function()
---   require('leap').leap {
---     target_windows = require('leap.user').get_focusable_windows()
---   }
--- end)
+vim.keymap.set('n', 's', function()
+  require('leap').leap {
+    target_windows = require('leap.user').get_focusable_windows()
+  }
+end)
 
 vim.keymap.set("n", "<F5>", function()
   require("dap").continue()

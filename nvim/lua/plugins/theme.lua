@@ -1,65 +1,95 @@
 return {
   {
+    "aktersnurra/no-clown-fiesta.nvim",
+    priority = 1000,
+    opts = {
+      styles = {
+        type = { bold = true },
+        lsp = { underline = false },
+        match_paren = { underline = true },
+      },
+    },
+    config = function (_, opts)
+      local plugin = require "no-clown-fiesta"
+      plugin.setup(opts)
+      return plugin.load()
+    end,
+    lazy = false,
+  },
+  {
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000,
-    config = function()
-      -- vim.cmd.colorscheme("catppuccin-mocha")
+    config = function(_, opts)
+      --       vim.cmd.colorscheme("catppuccin-mocha")
     end,
   },
+  -- {
+  --   "rebelot/kanagawa.nvim",
+  --   config = function()
+  --     -- vim.cmd.colorscheme("kanagawa")
+  --   end,
+  -- },
   {
-    "rebelot/kanagawa.nvim",
-    config = function()
-      -- vim.cmd.colorscheme("kanagawa")
-    end,
-  },
-  { 'rose-pine/neovim',
+    'rose-pine/neovim',
     name = 'rose-pine',
     opts = {
     },
     config = function(_, _)
-      -- vim.cmd.colorscheme("rose-pine-dawn")
+      -- vim.cmd.colorscheme("rose-pine-moon")
     end,
   },
+  -- {
+  --   'AlexvZyl/nordic.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --       require('nordic').load()
+  --   end
+  -- },
   {
     'projekt0n/github-nvim-theme',
     lazy = false,    -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       require('github-theme').setup({})
-      -- vim.cmd('colorscheme github_dark_default')
+      --       vim.cmd('colorscheme github_dark_default')
     end,
   },
+  -- {'morhetz/gruvbox', config = function() vim.cmd.colorscheme("gruvbox") end },
+  --  {
+  --    "xiantang/darcula-dark.nvim",
+  --    dependencies = {
+  --      "nvim-treesitter/nvim-treesitter",
+  --    },
+  --    config = function()
+  --      vim.cmd.colorscheme('darcula-solid')
+  --    end
+  --  },
+  -- {
+  --   "briones-gabriel/darcula-solid.nvim",
+  --   dependencies = { "rktjmp/lush.nvim" },
+  --   config = function()
+  --     vim.cmd.colorscheme('darcula-solid')
+  --   end
+  -- },
   {
-    "ellisonleao/gruvbox.nvim",
-    priority = 1000,
-    opts = {
-        terminal_colors = true, -- add neovim terminal colors
-        undercurl = true,
-        underline = true,
-        bold = true,
-        italic = {
-          strings = true,
-          emphasis = true,
-          comments = true,
-          operators = false,
-          folds = true,
-        },
-        strikethrough = true,
-        invert_selection = false,
-        invert_signs = false,
-        invert_tabline = false,
-        invert_intend_guides = false,
-        inverse = true, -- invert background for search, diffs, statuslines and errors
-        contrast = "", -- can be "hard", "soft" or empty string
-        palette_overrides = {},
-        overrides = {},
-        dim_inactive = false,
-        transparent_mode = false,
-    },
-    config = function(_, opts)
-      require("gruvbox").setup(opts)
-      vim.cmd("colorscheme gruvbox")
-    end,
-  }
+    "nyoom-engineering/oxocarbon.nvim",
+    config = function()
+      --       vim.cmd.colorscheme('oxocarbon')
+    end
+  },
+  { "sainnhe/everforest" },
+  { "sainnhe/sonokai" },
+  { "ellisonleao/gruvbox.nvim" },
+  { "savq/melange-nvim" },
+  { "alexvzyl/nordic.nvim" },
+  { "cocopon/iceberg.vim" },
+  {
+    "jwbaldwin/oscura.nvim",
+    config = function()
+       vim.cmd.colorscheme("oscura")
+    end
+  },
+  { 'luisiacc/gruvbox-baby' }
 }

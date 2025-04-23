@@ -2,18 +2,24 @@ local wezterm = require 'wezterm'
 
 local config = wezterm.config_builder()
 
--- config.color_scheme = 'Catppuccin Mocha'
--- config.color_scheme = 'Github Dark (Gogh)'
--- config.color_scheme = 'GitHub Dark'
--- config.color_scheme = 'Gruvbox (Gogh)'
-config.color_scheme = 'Gruvbox Dark (Gogh)'
--- config.color_scheme = 'Tokyo Night'
+config.color_scheme = 'GruvboxDarkHard'
+-- config.color_scheme = 'Gruvbox Dark (Gogh)'
+-- config.color_scheme = 'Kanagawa Dragon (Gogh)'
+
+config.font = wezterm.font {
+  family = 'Fira Code Nerd Font',
+  harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
+}
 
 local act = wezterm.action
 
---
 -- config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 2000 }
 config.keys = {
+  {
+    key = 'w',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.CloseCurrentPane { confirm = true },
+  },
   {
     key = '\\',
     mods = 'ALT',
@@ -57,5 +63,5 @@ config.keys = {
 }
 
 -- config.front_end = "WebGpu"
-
+config.enable_wayland = false
 return config

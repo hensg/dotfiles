@@ -1,95 +1,93 @@
 return {
   {
-    "aktersnurra/no-clown-fiesta.nvim",
-    priority = 1000,
-    opts = {
-      styles = {
-        type = { bold = true },
-        lsp = { underline = false },
-        match_paren = { underline = true },
-      },
-    },
-    config = function (_, opts)
-      local plugin = require "no-clown-fiesta"
-      plugin.setup(opts)
-      return plugin.load()
-    end,
-    lazy = false,
+    'morhetz/gruvbox',
+    config = function()
+      vim.g.gruvbox_bold = 0
+      -- vim.g.gruvbox_contrast_dark = 'dark'
+      vim.g.gruvbox_italicize_comments = 1
+      vim.g.gruvbox_italic = 1
+      vim.cmd.colorscheme("gruvbox")
+    end
   },
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
+    'sainnhe/gruvbox-material',
+    lazy = false,
     priority = 1000,
-    config = function(_, opts)
-      --       vim.cmd.colorscheme("catppuccin-mocha")
-    end,
+    config = function()
+      -- Optionally configure and load the colorscheme
+      -- directly inside the plugin declaration.
+      vim.g.gruvbox_contrast_dark = 'hard'
+      vim.g.gruvbox_material_enable_italic = true
+      -- vim.cmd.colorscheme('gruvbox-material')
+    end
   },
   -- {
-  --   "rebelot/kanagawa.nvim",
-  --   config = function()
-  --     -- vim.cmd.colorscheme("kanagawa")
+  --   name     = "sand",
+  --   dir      = vim.fn.stdpath('config'),    -- points at ~/.config/nvim
+  --   lazy     = false,                        -- load immediately
+  --   priority = 1000,                         -- load before everything else
+  --   config   = function()
+  --     vim.opt.termguicolors = true
+  --     vim.cmd('colorscheme sand')
   --   end,
   -- },
   {
-    'rose-pine/neovim',
-    name = 'rose-pine',
-    opts = {
-    },
-    config = function(_, _)
-      -- vim.cmd.colorscheme("rose-pine-moon")
-    end,
-  },
-  -- {
-  --   'AlexvZyl/nordic.nvim',
-  --   lazy = false,
-  --   priority = 1000,
-  --   config = function()
-  --       require('nordic').load()
-  --   end
-  -- },
-  {
-    'projekt0n/github-nvim-theme',
-    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000, -- make sure to load this before all the other start plugins
-    config = function()
-      require('github-theme').setup({})
-      --       vim.cmd('colorscheme github_dark_default')
-    end,
-  },
-  -- {'morhetz/gruvbox', config = function() vim.cmd.colorscheme("gruvbox") end },
-  --  {
-  --    "xiantang/darcula-dark.nvim",
-  --    dependencies = {
-  --      "nvim-treesitter/nvim-treesitter",
-  --    },
-  --    config = function()
-  --      vim.cmd.colorscheme('darcula-solid')
-  --    end
-  --  },
-  -- {
-  --   "briones-gabriel/darcula-solid.nvim",
-  --   dependencies = { "rktjmp/lush.nvim" },
-  --   config = function()
-  --     vim.cmd.colorscheme('darcula-solid')
-  --   end
-  -- },
-  {
-    "nyoom-engineering/oxocarbon.nvim",
-    config = function()
-      --       vim.cmd.colorscheme('oxocarbon')
+    "rebelot/kanagawa.nvim",
+    config = function(_, opts)
+      -- Default options:
+      require('kanagawa').setup({
+        compile = true,   -- enable compiling the colorscheme
+        undercurl = true, -- enable undercurls
+        commentStyle = { italic = true },
+        functionStyle = {},
+        keywordStyle = { italic = true },
+        statementStyle = { bold = true },
+        typeStyle = {},
+        transparent = false,   -- do not set background color
+        dimInactive = true,    -- dim inactive window `:h hl-NormalNC`
+        terminalColors = true, -- define vim.g.terminal_color_{0,17}
+        colors = {             -- add/modify theme and palette colors
+          palette = {},
+          theme = {
+            wave = {},
+            lotus = {},
+            dragon = {},
+            all = {
+              ui = {
+                bg_gutter = "none"
+              }
+            }
+          },
+        },
+        overrides = function(colors) -- add/modify highlights
+          local theme = colors.theme
+          return {
+            NormalFloat = { bg = "none" },
+            FloatBorder = { bg = "none" },
+            FloatTitle = { bg = "none" },
+
+            -- Save an hlgroup with dark background and dimmed foreground
+            -- so that you can use it where your still want darker windows.
+            -- E.g.: autocmd TermOpen * setlocal winhighlight=Normal:NormalDark
+            NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
+
+            -- Popular plugins that open floats will link to NormalFloat by default;
+            -- set their background accordingly if you wish to keep them dark and borderless
+            LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+            MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+            Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
+            PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
+            PmenuSbar = { bg = theme.ui.bg_m1 },
+            PmenuThumb = { bg = theme.ui.bg_p2 },
+          }
+        end,
+        theme = "dragon",  -- Load "wave" theme
+        background = {     -- map the value of 'background' option to a theme
+          dark = "dragon", -- try "dragon" !
+          light = "lotus"
+        },
+      })
+      -- vim.cmd("colorscheme kanagawa")
     end
-  },
-  { "sainnhe/everforest" },
-  { "sainnhe/sonokai" },
-  { "ellisonleao/gruvbox.nvim" },
-  { "savq/melange-nvim" },
-  { "alexvzyl/nordic.nvim" },
-  { "cocopon/iceberg.vim" },
-  {
-    "jwbaldwin/oscura.nvim",
-    config = function()
-       vim.cmd.colorscheme("oscura")
-    end
-  },
-  { 'luisiacc/gruvbox-baby' }
+  }
 }

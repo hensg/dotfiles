@@ -12,11 +12,11 @@ return {
         model = "gpt-4.1",             -- your desired model (or use gpt-4o, etc.)
         timeout = 30000,               -- Timeout in milliseconds, increase this for reasoning models
         temperature = 0,
-        max_completion_tokens = 32192, -- Increase this to include reasoning tokens (for reasoning models)
+        max_completion_tokens = 16380, -- Increase this to include reasoning tokens (for reasoning models)
         -- reasoning_effort = "high",   -- low|medium|high, only used for reasoning models
       },
       rag_service = {
-        enabled = false,                         -- Enables the RAG service
+        enabled = true,                         -- Enables the RAG service
         host_mount = os.getenv("HOME") .. "/Projects/",         -- Host mount path for the rag service
         provider = "openai",                    -- The provider to use for RAG service (e.g. openai or ollama)
         llm_model = "o3-mini",                  -- LLM model to use

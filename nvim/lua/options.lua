@@ -32,6 +32,7 @@ opt.updatetime = 200 -- Save swap file and trigger CursorHold
 opt.winminwidth = 5  -- Minimum window width
 opt.wrap = true      -- Disable line wrap
 opt.laststatus = 3
+opt.shell = "bash"
 
 if vim.fn.has("nvim-0.9.0") == 1 then
   opt.splitkeep = "screen"
@@ -39,11 +40,11 @@ if vim.fn.has("nvim-0.9.0") == 1 then
 end
 --
 vim.diagnostic.config({
-  virtual_text = {
-    spacing = 4,
-  },
+  -- virtual_text = {
+  --   spacing = 4,
+  -- },
   signs = true,
-  -- underline = true,
+  underline = true,
   update_in_insert = false,
   severity_sort = true,
 })

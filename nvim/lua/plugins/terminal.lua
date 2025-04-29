@@ -3,9 +3,9 @@ return {
   version = "*",
   config = function()
     require("toggleterm").setup({
-      shell = vim.o.shell .. " -i", -- <-- Force interactive shell
+      shell = vim.o.shell .. " -il", -- <-- Force interactive shell
       direction = "horizontal",
-      size = 15,
+      size = 30,
       open_mapping = [[<C-t>]],
       shading_factor = 2,
     })

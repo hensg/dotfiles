@@ -8,60 +8,53 @@ return {
       require('github-theme').setup({})
     end,
   },
-  --{
-  --  "ellisonleao/gruvbox.nvim",
-  --  priority = 1000,
-  --  config = true,
-  --  opts = {
-  --    terminal_colors = true, -- add neovim terminal colors
-  --    undercurl = true,
-  --    underline = true,
-  --    bold = false,
-  --    italic = {
-  --      strings = true,
-  --      emphasis = true,
-  --      comments = true,
-  --      operators = false,
-  --      folds = true,
-  --    },
-  --    strikethrough = true,
-  --    invert_selection = false,
-  --    invert_signs = false,
-  --    invert_tabline = false,
-  --    inverse = true, -- invert background for search, diffs, statuslines and errors
-  --    contrast = "", -- can be "hard", "soft" or empty string
-  --    palette_overrides = {},
-  --    overrides = {},
-  --    dim_inactive = false,
-  --    transparent_mode = false,
-  --  }
-  --},
   {
-    'morhetz/gruvbox',
-    config = function()
-      vim.g.gruvbox_invert_selection = 0
-      vim.g.gruvbox_contrast_dark = 'hard'
-      vim.g.gruvbox_italicize_comments = 1
-      vim.g.gruvbox_italic = 1
-      vim.g.gruvbox_bold = 0
-      vim.g.gruvbox_hls_cursor = nil
-
-      --   vim.api.nvim_set_hl(0, 'DiffAdd', { fg = '#1D2021', bg = '#B8BB26' })
-      --   vim.api.nvim_set_hl(0, 'DiffChange', { fg = '#1D2021', bg = '#FABD2F' })
-      --   vim.api.nvim_set_hl(0, 'DiffDelete', { fg = '#1D2021', bg = '#FB4934' })
-      --   vim.api.nvim_set_hl(0, 'DiffText', { fg = '#1D2021', bg = '#98971A' })
-    end
+    "ellisonleao/gruvbox.nvim",
+    priority = 1000,
+    config = true,
+    opts = {
+      terminal_colors = true,
+      contrast = "",
+      undercurl = true,
+      underline = true,
+      bold = false,
+      italic = {
+        strings = true,
+        emphasis = true,
+        comments = true,
+        operators = false,
+        folds = true,
+      },
+      strikethrough = true,
+      invert_selection = false,
+      invert_signs = false,
+      invert_tabline = false,
+      inverse = true,                             -- invert background for search, diffs, statuslines and errors
+      overrides = {},
+      palette_overrides = {},
+      dim_inactive = false,
+      transparent_mode = false,
+    }
   },
+  -- {
+  --   'morhetz/gruvbox',
+  --   config = function()
+  --     vim.g.gruvbox_invert_selection = 0
+  --     vim.g.gruvbox_contrast_dark = 'medium'
+  --     vim.g.gruvbox_italicize_comments = 1
+  --     vim.g.gruvbox_italic = 1
+  --     vim.g.gruvbox_bold = 0
+  --     vim.g.gruvbox_hls_cursor = nil
+  --   end
+  -- },
   {
     'sainnhe/gruvbox-material',
     lazy = false,
     priority = 1000,
     config = function()
-      -- Optionally configure and load the colorscheme
-      -- directly inside the plugin declaration.
-      vim.g.gruvbox_material_background = 'medium'
+      vim.g.gruvbox_material_background = 'hard'
+      vim.g.gruvbox_material_foreground = 'mix'
       vim.g.gruvbox_material_enable_italic = false
-      -- vim.cmd.colorscheme('gruvbox-material')
     end
   },
   {

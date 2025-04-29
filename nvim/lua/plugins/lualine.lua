@@ -50,7 +50,7 @@ return {
             end,
             color = { fg = '#98be65' },
           },
-          'filetype',
+          -- 'filetype',
         },
         lualine_y = { 'progress' },
         lualine_z = { 'location' },

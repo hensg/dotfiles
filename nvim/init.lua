@@ -25,5 +25,4 @@ require("lazy").setup("plugins", {
 
 require("keymaps")
 
--- vim.cmd.colorscheme "catppuccin"
-vim.cmd.colorscheme "gruvbox"
+vim.cmd.colorscheme "gruvbox-material"

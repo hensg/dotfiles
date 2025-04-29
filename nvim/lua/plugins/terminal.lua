@@ -1,15 +1,13 @@
 return {
-  {
-    'akinsho/toggleterm.nvim',
-    version = '*',
-    init = function() end,
-    config = function()
-      require('toggleterm').setup({
-        start_in_insert = true,
-        -- direction = 'tab',
-        open_mapping = [[<c-t>]],
-        size = 25
-      })
-    end,
-  }
+  "akinsho/toggleterm.nvim",
+  version = "*",
+  config = function()
+    require("toggleterm").setup({
+      shell = vim.o.shell .. " -i", -- <-- Force interactive shell
+      direction = "horizontal",
+      size = 15,
+      open_mapping = [[<C-t>]],
+      shading_factor = 2,
+    })
+  end,
 }

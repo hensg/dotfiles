@@ -44,6 +44,12 @@ return {
             components = {
               kind_icon = {
                 text = function(ctx)
+                  local lspkind = require("lspkind")
+                  lspkind.init({
+                    symbol_map = {
+                      Copilot = "",
+                    },
+                  })
                   local icon = ctx.kind_icon
                   if vim.tbl_contains({ "Path" }, ctx.source_name) then
                     local dev_icon, _ = require("nvim-web-devicons").get_icon(ctx.label)
@@ -51,7 +57,7 @@ return {
                       icon = dev_icon
                     end
                   else
-                    icon = require("lspkind").symbolic(ctx.kind, {
+                    icon = lspkind.symbolic(ctx.kind, {
                       mode = "symbol",
                     })
                   end
@@ -90,16 +96,20 @@ return {
         window = { border = border_chars },
       },
       sources = {
-        default = { 'avante', 'lsp', 'snippets', 'path', 'buffer' },
-        providers = {
-          avante = {
-            module = 'blink-cmp-avante',
-            name = 'Avante',
-            opts = {
-              -- options for blink-cmp-avante
-            }
-          }
-        },
+        default = { 'lsp', 'snippets', 'path', 'buffer' },
+        -- providers = {
+        --   copilot = {
+        --     name = "copilot",
+        --     module = "blink-copilot",
+        --   },
+        --   avante = {
+        --     module = 'blink-cmp-avante',
+        --     name = 'Avante',
+        --     opts = {
+        --       -- options for blink-cmp-avante
+        --     }
+        --   }
+        -- },
       },
     },
     opts_extend = { "sources.default" }

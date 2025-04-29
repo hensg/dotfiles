@@ -1,23 +1,25 @@
+# If NOT an interactive shell, exit early
+[[ $- != *i* ]] && return
 
-if [[ $- == *i* ]]; then
+# Inside NVIM (toggleterm or neovim terminal)?
+if [[ -n "$NVIM" ]]; then
+  # Running inside Neovim terminal
+  # Load starship because we want the prompt pretty
+  eval "$(starship init bash)"
+  eval "$(zoxide init bash)"
+  eval "$(atuin init bash --disable-up-arrow)"
+
+  # Do NOT load ble.sh, because it breaks inside NVIM
+else
+  # Normal real terminal
   source "$HOME/.local/share/blesh/ble.sh" --rcfile "$HOME/.blerc"
+  eval "$(starship init bash)"
+  eval "$(zoxide init bash)"
+  eval "$(atuin init bash --disable-up-arrow)"
 fi
 
-setxkbmap -option ctrl:nocaps
-
-alias ll="ls -l"
-alias la="ls -la"
-
-alias g="git"
-alias k="kubectl"
-
+# Common exports
 export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 export GPG_TTY=$(tty)
-
-eval "$(starship init bash)"
-eval "$(zoxide init bash)"
-
-#[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
-eval "$(atuin init bash --disable-up-arrow)"
-
-[[ ! ${BLE_VERSION-} ]] || ble-attach
+export PATH=$PATH:$HOME/go/bin:$HOME/.cargo/bin
+eval "$(fzf --bash)"

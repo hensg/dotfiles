@@ -51,6 +51,7 @@ return {
     })
 
     -- Optional language servers
+    lspconfig.denols.setup({ capabilities = capabilities, on_attach = on_attach })
     lspconfig.pylsp.setup({ capabilities = capabilities, on_attach = on_attach })
     lspconfig.ruff.setup({ capabilities = capabilities, on_attach = on_attach })
     lspconfig.gopls.setup({ capabilities = capabilities, on_attach = on_attach })

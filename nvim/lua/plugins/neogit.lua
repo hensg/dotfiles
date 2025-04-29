@@ -8,5 +8,6 @@ return {
     "ibhagwan/fzf-lua",              -- optional
     "echasnovski/mini.pick",         -- optional
   },
-  config = true
+  cmd = "Neogit",
+  config = function() require("neogit").setup{} end,
 }
